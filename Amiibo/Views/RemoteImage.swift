@@ -27,7 +27,7 @@ final class ImageLoader: ObservableObject {
 }
 
 //If view is nil, we use a placeholder, otherwise we uses the image from api
-struct remoteImage: View {
+struct RemoteImage: View {
     
     var image: Image?
     
@@ -48,7 +48,7 @@ struct AmiiboRemoteImage: View {
     
     var body: some View {
         
-        remoteImage(image: imageLoader.image)
+        RemoteImage(image: imageLoader.image)
             .onAppear { imageLoader.load(fromURLString: urlString) }
         
     }

@@ -42,8 +42,10 @@ struct AmiiboNavigationView: View {
         .listStyle(.plain)
         .accentColor(.brandPrimary)
         .navigationTitle("Amiibo")
+        .refreshable { viewModel.getAmiibo() }
         .toolbar { switchCellType }
-        
+        .overlay { if viewModel.isLoading { LoadingView() } }
+
     }
     
     var gridView: some View {
@@ -64,11 +66,35 @@ struct AmiiboNavigationView: View {
                 
             }
             .padding()
+            .overlay { if viewModel.isLoading { LoadingView() } }
             
         }
         .accentColor(.brandPrimary)
         .navigationTitle("Amiibo")
-        .toolbar { switchCellType }
+        .toolbar {
+            
+            refresh
+            switchCellType
+            
+        }
+        .overlay { if viewModel.isLoading { LoadingView() } }
+        
+    }
+    
+    var refresh: some ToolbarContent {
+        
+        ToolbarItem(placement: .navigationBarLeading) {
+            
+            Button {
+                
+                withAnimation { viewModel.getAmiibo() } } label: {
+                    
+                    Image(systemName: "arrow.clockwise")
+                        .foregroundColor(Color.brandPrimary)
+                    
+                }
+            
+        }
         
     }
     
@@ -94,7 +120,7 @@ struct AmiiboNavigationView: View {
         ZStack {
             
             NavigationView {
-                
+                                
                 if listEnabled {
                     
                     listView
@@ -106,13 +132,12 @@ struct AmiiboNavigationView: View {
                 }
 
             }
+            .animation(.easeInOut, value: searchText)
             .onAppear { viewModel.getAmiibo() }
-            
-            if viewModel.isLoading { LoadingView() }
             
         }
         .accentColor(.brandPrimary)
-        .searchable(text: $searchText)
+        .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
         .alert(item: $viewModel.alertItem) { alertItem in
             
             Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)

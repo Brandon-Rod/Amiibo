@@ -77,6 +77,65 @@ final class NetworkManager {
         task.resume()
         
     }
+    
+    /// Fetches amiibo depending on the amiibo series
+    /// - Parameters:
+    ///   - amiiboSeries: Specific amiibo fetched
+    ///   - completed: Whether or not we succeeded in fetching data from the api.
+    func getAmiiboSeries(amiiboSeries: String, completed: @escaping (Result<[Amiibo], AmiiboError>) -> Void) {
+        
+        let endpoint = amiiboURL + "amiibo/?amiiboSeries=\(amiiboSeries)"
+        
+//        Makes sure the url given works
+        guard let url = URL(string: endpoint) else {
+            
+            completed(.failure(.invalidURL))
+            return
+            
+        }
+        
+        /// Fetches the data from the api if we succeed, otherwise we show an alert detailing what went wrong.
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
+            
+            if let _ = error {
+                
+                completed(.failure(.unableToComplete))
+                return
+                
+            }
+            
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                
+                completed(.failure(.invalidResponse))
+                return
+                
+            }
+            
+            guard let data = data else {
+                
+                completed(.failure(.invalidData))
+                return
+                
+            }
+            
+            do {
+                
+                let decoder = JSONDecoder()
+                let decodedResponse = try decoder.decode(AmiiboResponse.self, from: data)
+                completed(.success(decodedResponse.amiibo))
+                
+            } catch {
+                
+                completed(.failure(.invalidData))
+                return
+                
+            }
+            
+        }
+        
+        task.resume()
+        
+    }
         
     /// Downloads and caches an image from the api
     /// - Parameters:

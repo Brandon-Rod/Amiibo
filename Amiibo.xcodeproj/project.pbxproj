@@ -87,7 +87,7 @@
 			children = (
 				ED6519BA26C456330037BC1E /* AmiiboApp.swift */,
 				ED6519DF26C5FA640037BC1E /* Screens */,
-				ED6519E226C5FB160037BC1E /* Cell */,
+				ED6519E226C5FB160037BC1E /* Cells */,
 				ED6519E126C5FB120037BC1E /* Model */,
 				ED6519E326C5FB400037BC1E /* Utilities */,
 				ED52021026C863C700DAD266 /* Extensions */,
@@ -123,13 +123,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		ED6519E226C5FB160037BC1E /* Cell */ = {
+		ED6519E226C5FB160037BC1E /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				ED6519CF26C45A620037BC1E /* AmiiboListCell.swift */,
 				ED3B09AA2701512D004923EC /* AmiiboGridCell.swift */,
 			);
-			path = Cell;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		ED6519E326C5FB400037BC1E /* Utilities */ = {
