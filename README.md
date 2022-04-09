@@ -3,8 +3,8 @@
 Amiibo is a SwiftUI app that fetches data from a RESTful api (https://www.amiiboapi.com). 
 
 ## Tecnologies Used
-User Defaults
-\n/nNSCasche
+User Defaults...
+NSCasche
 Dark Mode
 
 ## Struggle
