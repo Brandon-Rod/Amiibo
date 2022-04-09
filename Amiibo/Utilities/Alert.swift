@@ -26,4 +26,10 @@ struct AlertContext {
     
     static let unableToComplete = AlertItem(title: Text("Server Error"), message: Text("Unable to complete your request at this time. Please check your internet connection."), dismissButton: .default(Text("OK")))
     
+    static let unableToFavorite = AlertItem(title: Text("Persistence Error"), message: Text("There was an error favoriting amiibo. Please try again."), dismissButton: .default(Text("OK")))
+    
+    static let alreadyInFavorites = AlertItem(title: Text("Amiibo all ready in favorites"), message: Text("You can't favorite them more than once!"), dismissButton: .default(Text("OK")))
+    
+    static let invalidUsername = AlertItem(title: Text("Invalid Username"), message: Text("Unable to save  amiibo."), dismissButton: .default(Text("OK")))
+    
 }

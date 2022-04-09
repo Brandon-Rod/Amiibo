@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Amiibo: Decodable, Identifiable {
+struct Amiibo: Codable, Hashable, Identifiable {
     
     let name: String
     let image: String
@@ -27,7 +27,7 @@ struct Amiibo: Decodable, Identifiable {
     
 }
 
-struct Release: Decodable {
+struct Release: Codable, Hashable {
     
     let au: String?
     let eu: String?
@@ -36,7 +36,7 @@ struct Release: Decodable {
     
 }
 
-struct AmiiboResponse: Decodable {
+struct AmiiboResponse: Codable, Hashable {
     
     let amiibo: [Amiibo]
     

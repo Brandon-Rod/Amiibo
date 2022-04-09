@@ -7,11 +7,11 @@
 
 import SwiftUI
 
+/// Downloads image from api.
 final class ImageLoader: ObservableObject {
     
     @Published var image: Image? = nil
-    
-//    If completed, we will receive our image from api, else we fail
+        
     func load(fromURLString urlString: String) {
         
         NetworkManager.shared.downloadImage(fromURLString: urlString) { uiImage in
@@ -26,20 +26,18 @@ final class ImageLoader: ObservableObject {
     
 }
 
-//If view is nil, we use a placeholder, otherwise we uses the image from api
 struct RemoteImage: View {
     
     var image: Image?
     
     var body: some View {
         
-        image?.resizable() ?? Image("amiibo-Placeholder").resizable()
+        image?.resizable() ?? Image(Strings.placeholder).resizable()
         
     }
     
 }
 
-//Gives the us the amiiboImage
 struct AmiiboRemoteImage: View {
     
     @StateObject var imageLoader = ImageLoader()

@@ -7,8 +7,8 @@
 
 import Foundation
 
-enum AmiiboError: Error {
+enum AmiiboError: String, Error {
     
-    case invalidURL, invalidResponse, invalidData, unableToComplete
+    case invalidURL, invalidResponse, invalidData, unableToComplete, unableToFavorite, alreadyInFavorites, invalidUsername
     
 }

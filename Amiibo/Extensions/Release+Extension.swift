@@ -11,25 +11,25 @@ extension Release {
     
     var auText: String {
         
-        au ?? "Not Available"
+        au ?? Strings.notAvailable
         
     }
     
     var euText: String {
         
-        eu ?? "Not Available"
+        eu ?? Strings.notAvailable
         
     }
     
     var jpText: String {
         
-        jp ?? "Not Available"
+        jp ?? Strings.notAvailable
         
     }
     
     var naText: String {
         
-        na ?? "Not Available"
+        na ?? Strings.notAvailable
         
     }
     

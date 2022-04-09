@@ -9,41 +9,77 @@ import SwiftUI
 
 struct AmiiboDetailView: View {
     
+    @Binding var inPersistence: Bool
+    
+    @StateObject var detailViewModel = AmiiboDetailHomeViewModel()
+    
     let amiibo: Amiibo
     
     var body: some View {
         
-        ScrollView {
+        ZStack {
             
-            VStack(alignment: .center, spacing: 10) {
+            ScrollView {
                 
-                AmiiboRemoteImage(urlString: amiibo.image)
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 300, height: 300)
-                
-                Divider()
-                
-                HStack {
+                VStack(alignment: .center, spacing: 10) {
                     
-                    AmiiboInfoView(amiibo: amiibo)
+                    AmiiboRemoteImage(urlString: amiibo.image)
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 300, height: 300)
                     
-                    Spacer()
+                    Divider()
+                    
+                    HStack {
+                        
+                        AmiiboInfoView(amiibo: amiibo)
+                        
+                        Spacer()
+                        
+                    }
+                    
+                    HStack {
+                        
+                        AmiiboReleaseDate(amiibo: amiibo)
+                        
+                        Spacer()
+                        
+                    }
+                                        
+                    if !inPersistence {
+                        
+                        Divider()
+                        
+                        Button {
+                            
+                            detailViewModel.favorite(amiibo: amiibo) } label: { AmiiboButton(title: Strings.addToFavorites)
+                                
+                            }
+                        
+                    }
                     
                 }
-                
-                HStack {
-                    
-                    AmiiboReleaseDate(amiibo: amiibo)
-                    
-                    Spacer()
-                    
-                }
+                .padding()
                 
             }
-            .padding()
+            .navigationTitle(amiibo.name)
+            .blur(radius: detailViewModel.isShowingAlert ? 5 : 0)
+            .disabled(detailViewModel.isShowingAlert)
+            .overlay { if detailViewModel.isLoading { LoadingView() } }
+            
+            if detailViewModel.amiiboAddedToFavorites {
+                
+                AmiiboAlertView(isShowingAlert: $detailViewModel.amiiboAddedToFavorites, title: Strings.success, message: Strings.addedToFavorites)
+                
+            }
             
         }
-        .navigationTitle(amiibo.name)
+        .animation(.easeInOut, value: detailViewModel.isShowingAlert)
+        .animation(.easeInOut, value: detailViewModel.isLoading)
+        .alert(item: $detailViewModel.alertItem) { item in
+            
+            Alert(title: item.title, message: item.message, dismissButton: item.dismissButton)
+            
+        }
         
     }
     
@@ -51,70 +87,6 @@ struct AmiiboDetailView: View {
 
 struct AmiiboDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        AmiiboDetailView(amiibo: MockData.sampleAmiibo)
+        AmiiboDetailView(inPersistence: .constant(false), amiibo: MockData.sampleAmiibo)
     }
-}
-
-struct AmiiboTitleView: View {
-    
-    var text: String
-    
-    var body: some View {
-        
-        Text(text)
-            .font(.title)
-            .padding(10)
-            .background(Color.brandPrimary)
-            .cornerRadius(10)
-        
-    }
-    
-}
-
-struct AmiiboInfoView: View {
-    
-    let amiibo: Amiibo
-    
-    var body: some View {
-        
-        VStack(alignment: .leading, spacing: 5) {
-            
-            AmiiboTitleView(text: "Info")
-            
-            Text("Name: ") + Text(amiibo.name).foregroundColor(.brandPrimary)
-            
-            Text("Game Series: ") + Text(amiibo.gameSeries).foregroundColor(.brandPrimary)
-            
-            Text("Amiibo Series: ") + Text(amiibo.amiiboSeries).foregroundColor(.brandPrimary)
-            
-            Text("Type: ") + Text(amiibo.type).foregroundColor(.brandPrimary)
-            
-        }
-        
-    }
-    
-}
-
-struct AmiiboReleaseDate: View {
-    
-    let amiibo: Amiibo
-    
-    var body: some View {
-        
-        VStack(alignment: .leading, spacing: 5) {
-            
-            AmiiboTitleView(text: "Release Date")
-            
-            Text("Australia: ") + Text(amiibo.release.auText).foregroundColor(.brandPrimary)
-            
-            Text("Europe: ") + Text(amiibo.release.euText).foregroundColor(.brandPrimary)
-            
-            Text("Japan: ") + Text(amiibo.release.jpText).foregroundColor(.brandPrimary)
-                        
-            Text("North America: ") + Text(amiibo.release.naText).foregroundColor(.brandPrimary)
-                        
-        }
-        
-    }
-    
 }

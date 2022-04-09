@@ -7,32 +7,17 @@
 
 import SwiftUI
 
-struct AmiiboNavigationView: View {
+struct AmiiboHomeView: View {
     
-    @StateObject var viewModel = AmiiboNavigationViewModel()
+    @StateObject var homeViewModel = AmiiboHomeViewModel()
     
-    @State private var searchText = ""
-    @State private var listEnabled = true
-    
-    var filteredAmiibo: [Amiibo] {
-        
-        if searchText.isEmpty {
-            
-            return viewModel.amiibo
-            
-        } else {
-            
-            return viewModel.amiibo.filter { $0.name.localizedCaseInsensitiveContains(searchText.lowercased()) }
-            
-        }
-        
-    }
+    static let tag: String? = Strings.homeTag
     
     var listView: some View {
         
-        List(filteredAmiibo) { amiibo in
+        List(homeViewModel.filteredAmiibo) { amiibo in
 
-            NavigationLink(destination: AmiiboDetailView(amiibo: amiibo)) {
+            NavigationLink(destination: AmiiboDetailView(inPersistence: .constant(false), amiibo: amiibo)) {
                 
                 AmiiboListCell(amiibo: amiibo)
                 
@@ -41,10 +26,10 @@ struct AmiiboNavigationView: View {
         }
         .listStyle(.plain)
         .accentColor(.brandPrimary)
-        .navigationTitle("Amiibo")
-        .refreshable { viewModel.getAmiibo() }
+        .navigationTitle(Strings.homeTitle)
+        .refreshable { homeViewModel.getAmiibo() }
         .toolbar { switchCellType }
-        .overlay { if viewModel.isLoading { LoadingView() } }
+        .overlay { if homeViewModel.isLoading { LoadingView() } }
 
     }
     
@@ -52,11 +37,11 @@ struct AmiiboNavigationView: View {
         
         ScrollView {
             
-            LazyVGrid(columns: viewModel.columns) {
+            LazyVGrid(columns: homeViewModel.columns) {
                 
-                ForEach(filteredAmiibo) { amiibo in
+                ForEach(homeViewModel.filteredAmiibo) { amiibo in
                     
-                    NavigationLink(destination: AmiiboDetailView(amiibo: amiibo)) {
+                    NavigationLink(destination: AmiiboDetailView(inPersistence: .constant(false), amiibo: amiibo)) {
                         
                         AmiiboGridCell(amiibo: amiibo)
                         
@@ -66,18 +51,18 @@ struct AmiiboNavigationView: View {
                 
             }
             .padding()
-            .overlay { if viewModel.isLoading { LoadingView() } }
+            .overlay { if homeViewModel.isLoading { LoadingView() } }
             
         }
         .accentColor(.brandPrimary)
-        .navigationTitle("Amiibo")
+        .navigationTitle(Strings.homeTitle)
         .toolbar {
             
             refresh
             switchCellType
             
         }
-        .overlay { if viewModel.isLoading { LoadingView() } }
+        .overlay { if homeViewModel.isLoading { LoadingView() } }
         
     }
     
@@ -87,9 +72,9 @@ struct AmiiboNavigationView: View {
             
             Button {
                 
-                withAnimation { viewModel.getAmiibo() } } label: {
+                withAnimation { homeViewModel.getAmiibo() } } label: {
                     
-                    Image(systemName: "arrow.clockwise")
+                    Image(systemName: SFSymbols.refresh)
                         .foregroundColor(Color.brandPrimary)
                     
                 }
@@ -104,9 +89,9 @@ struct AmiiboNavigationView: View {
             
             Button {
                 
-                withAnimation { listEnabled.toggle() } } label: {
+                withAnimation { homeViewModel.listEnabled.toggle() } } label: {
                     
-                    Image(systemName: listEnabled ? "rectangle.grid.3x2" : "list.dash")
+                    Image(systemName: homeViewModel.listEnabled ? SFSymbols.grid : SFSymbols.list)
                         .foregroundColor(Color.brandPrimary)
                     
                 }
@@ -121,7 +106,7 @@ struct AmiiboNavigationView: View {
             
             NavigationView {
                                 
-                if listEnabled {
+                if homeViewModel.listEnabled {
                     
                     listView
                     
@@ -130,15 +115,16 @@ struct AmiiboNavigationView: View {
                     gridView
                     
                 }
-
+                
             }
-            .animation(.easeInOut, value: searchText)
-            .onAppear { viewModel.getAmiibo() }
+            .animation(.easeInOut, value: homeViewModel.searchText)
+            .animation(.easeInOut, value: homeViewModel.listEnabled)
+            .onAppear { homeViewModel.getAmiiboOnAppear() }
             
         }
         .accentColor(.brandPrimary)
-        .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
-        .alert(item: $viewModel.alertItem) { alertItem in
+        .searchable(text: $homeViewModel.searchText, placement: .navigationBarDrawer(displayMode: .always))
+        .alert(item: $homeViewModel.alertItem) { alertItem in
             
             Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
             
@@ -150,6 +136,6 @@ struct AmiiboNavigationView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        AmiiboNavigationView()
+        AmiiboHomeView()
     }
 }

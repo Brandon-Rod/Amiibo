@@ -15,7 +15,6 @@ struct AmiiboGridCell: View {
         
         VStack(spacing: 5) {
             
-//            I'm not using AsyncImage because there are a lot of amiibo and I need to cache each image
             AmiiboRemoteImage(urlString: amiibo.image)
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 70, height: 70)
@@ -33,7 +32,7 @@ struct AmiiboGridCell: View {
                     .font(.title2)
                     .fontWeight(.medium)
                 
-                Text(amiibo.amiiboSeries + " Amiibo Series")
+                Text(amiibo.amiiboSeries + Strings.amiiboSeries)
                     .foregroundColor(.secondary)
                     .fontWeight(.semibold)
                 
