@@ -9,7 +9,6 @@
 - Support for light and dark mode
 - Custom Alerts
 - Empty State Views
-- 
 
 ## Tecnologies Used
 - User Defaults
