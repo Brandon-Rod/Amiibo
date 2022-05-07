@@ -18,4 +18,4 @@
 - Result
 
 ## Struggle
-Since SwiftUI’s lifecycle doesn’t have viewDidLoad(), I had to figure out how to only fetch data from api once when loading the app. Since I use the .onAppear modifier, data from the API would be fetched constanalty. 
+Since SwiftUI’s lifecycle doesn’t have viewDidLoad(), I had to figure out how to only fetch data from the api once when loading the app. Since I use the .onAppear modifier, data from the API would be fetched constanalty. 
