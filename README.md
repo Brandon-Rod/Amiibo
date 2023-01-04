@@ -19,6 +19,7 @@
 
 ## Tecnologies Used
 - SwiftUI
+- XCTest
 - User Defaults
 - NSCasche
 - Search Functionality 
