@@ -1,15 +1,12 @@
 # Amiibo
 
-![Amiibo-Home](https://user-images.githubusercontent.com/61842505/163694780-3702f4f1-b613-4d14-b066-0dd3e050f071.png)
+![List-Rotato](https://user-images.githubusercontent.com/61842505/210621638-e52c6d16-d330-4908-9a4c-7985d06099bb.png)
 
-![Amiibo-FavoriteAlert](https://user-images.githubusercontent.com/61842505/163694792-bbd06cb3-05ca-4fd5-88eb-57a35bed1b1a.png)
+![AddedToFavorites-Rotato](https://user-images.githubusercontent.com/61842505/210621653-4e03bb7e-f0f2-4be6-9578-e14cd12a1b0f.png)
 
-![Amiibo-Grid](https://user-images.githubusercontent.com/61842505/172969771-93f217ae-4936-44bd-b228-65f8d525fab6.png)
+![Grid-Rotato](https://user-images.githubusercontent.com/61842505/210621677-d255b79f-a1b6-4a5b-b7a8-a97d80e1761d.png)
 
-![Amiibo-GridSearch](https://user-images.githubusercontent.com/61842505/172969774-3321dad6-6897-4908-8cab-7087efe42fcd.png)
-
-![Amiibo-Favorites](https://user-images.githubusercontent.com/61842505/163694784-3864dc6d-a220-4a1a-8570-0ad030a8f424.png)
-
+![Favorites-Rotato](https://user-images.githubusercontent.com/61842505/210621702-b5268ff8-c98f-4b06-805f-46a8fed090cf.png)
 
 ## About
 - MVVM
