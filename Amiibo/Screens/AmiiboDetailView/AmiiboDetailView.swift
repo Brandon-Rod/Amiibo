@@ -6,13 +6,17 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct AmiiboDetailView: View {
     
     @StateObject private var viewModel = AmiiboDetailViewModel()
     
+    @Environment(\.modelContext) var context
+    
+    @Query private var favoriteAmiibo: [FavoriteAmiibo]
+    
     let amiibo: Amiibo
-    let inPersistence: Bool
         
     var body: some View {
         
@@ -35,23 +39,19 @@ struct AmiiboDetailView: View {
                 
                 AmiiboReleaseDatesGroupView(amiibo: amiibo)
                 
-                if !inPersistence {
+                AmiiboDividerView(color: .brandPrimary)
+                
+                Button {
                     
-                    AmiiboDividerView(color: .brandPrimary)
-                    
-                    Button {
+                    Task {
                         
-                        Task {
-                            
-                            await viewModel.favorite(amiibo: amiibo)
-                            
-                        }
-                        
-                    } label: {
-                        
-                        AmiiboButtonView(title: Constants.addToFavorites)
+                        await viewModel.favorite(amiibo: amiibo, context: context, favorites: favoriteAmiibo)
                         
                     }
+                    
+                } label: {
+                    
+                    AmiiboButtonView(title: Constants.addToFavorites)
                     
                 }
                 
@@ -63,7 +63,10 @@ struct AmiiboDetailView: View {
         .background(Color.background)
         .animation(.easeOut, value: viewModel.isShowingError)
         .animation(.easeOut, value: viewModel.isLoading)
+        .animation(.easeOut, value: viewModel.isAlreadyInFavorites)
         .blur(radius: viewModel.isShowingError ? 7 : 0)
+        .blur(radius: viewModel.showingOverView ? 7 : 0)
+        .disabled(viewModel.showingOverView)
         .overlay {
             
             if viewModel.isLoading {
@@ -78,10 +81,20 @@ struct AmiiboDetailView: View {
             if viewModel.addedToFavorites {
 
                 AmiiboSuccessView()
-                    .onAppear { viewModel.showOverlayAnimation() }
+                    .onAppear { viewModel.showSuccesOverlayAnimation() }
 
             }
 
+        }
+        .overlay {
+            
+            if viewModel.isAlreadyInFavorites {
+                
+                AmiiboAlreadyInFavoritesView()
+                    .onAppear { viewModel.showErrorOverlayAnimation() }
+                
+            }
+            
         }
         .overlay {
             
@@ -101,7 +114,7 @@ struct AmiiboDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             
-            AmiiboDetailView(amiibo: MockData.sampleAmiibo, inPersistence: false)
+            AmiiboDetailView(amiibo: MockData.sampleAmiibo)
             
         }
     }

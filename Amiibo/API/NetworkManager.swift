@@ -5,7 +5,7 @@
 //  Created by Brandon Rodriguez on 8/11/21.
 //
 
-import UIKit
+import Foundation
 
 protocol NetworkManagerProtocol {
     

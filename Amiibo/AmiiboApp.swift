@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct AmiiboApp: App {
@@ -21,6 +22,7 @@ struct AmiiboApp: App {
         WindowGroup {
             
             TabBar()
+                .modelContainer(for: FavoriteAmiibo.self)
             
         }
         

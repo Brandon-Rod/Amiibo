@@ -1,15 +1,15 @@
 //
-//  AmiiboReleaseDatesGroupView.swift
+//  FavoriteAmiiboReleaseDateGroupView.swift
 //  Amiibo
 //
-//  Created by Brandon Rodriguez on 12/30/22.
+//  Created by Brandon Rodriguez on 3/28/24.
 //
 
 import SwiftUI
 
-struct AmiiboReleaseDatesGroupView: View {
+struct FavoriteAmiiboReleaseDatesGroupView: View {
     
-    let amiibo: Amiibo
+    let amiibo: FavoriteAmiibo
     
     var body: some View {
         
@@ -39,8 +39,6 @@ struct AmiiboReleaseDatesGroupView: View {
     
 }
 
-struct AmiiboReleaseDatesGroupView_Previews: PreviewProvider {
-    static var previews: some View {
-        AmiiboReleaseDatesGroupView(amiibo: MockData.sampleAmiibo)
-    }
+#Preview {
+    FavoriteAmiiboReleaseDatesGroupView(amiibo: FavoriteAmiibo.example)
 }

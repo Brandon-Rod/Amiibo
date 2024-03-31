@@ -76,10 +76,13 @@ enum Constants {
 
 enum SFSymbols {
     
-//    static let refresh = "arrow.clockwise"
     static let grid = "rectangle.grid.3x2"
     static let list = "list.dash"
+    static let sort = "arrow.up.arrow.down"
     static let house = "house"
+    static let alphabetical = "abc"
+    static let figure = "figure.stand"
+    static let card = "lanyardcard"
     static let star = "star"
     
 }

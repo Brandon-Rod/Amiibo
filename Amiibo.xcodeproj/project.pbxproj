@@ -3,13 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		ED0C932C27EACAD300C22EB8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0C932B27EACAD300C22EB8 /* Constants.swift */; };
-		ED0C932E27EACC0600C22EB8 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0C932D27EACC0600C22EB8 /* FavoritesViewModel.swift */; };
+		ED4464CC2BB5C8E8003263DB /* FavoritesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4464CB2BB5C8E8003263DB /* FavoritesDetailView.swift */; };
+		ED4464CE2BB5C9F1003263DB /* FavoriteAmiiboReleaseDatesGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4464CD2BB5C9F1003263DB /* FavoriteAmiiboReleaseDatesGroupView.swift */; };
+		ED4464D32BB5CAAA003263DB /* FavoriteAmiiboGroupInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4464D22BB5CAAA003263DB /* FavoriteAmiiboGroupInfoView.swift */; };
+		ED4464D52BB90268003263DB /* AmiiboAlreadyInFavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4464D42BB90268003263DB /* AmiiboAlreadyInFavoritesView.swift */; };
+		ED4464D72BB9D569003263DB /* SortAmiiboOptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4464D62BB9D569003263DB /* SortAmiiboOptionManager.swift */; };
 		ED4467352800E54C00C08744 /* AmiiboDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4467342800E54C00C08744 /* AmiiboDetailViewModel.swift */; };
+		ED4FF5FD2BB4DB3E0063A8E3 /* FavoriteAmiibo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4FF5FC2BB4DB3E0063A8E3 /* FavoriteAmiibo.swift */; };
+		ED5974962BB5BCCC00593AF2 /* FavoriteAmiiboView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5974952BB5BCCC00593AF2 /* FavoriteAmiiboView.swift */; };
 		ED6519BB26C456330037BC1E /* AmiiboApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6519BA26C456330037BC1E /* AmiiboApp.swift */; };
 		ED6519BD26C456330037BC1E /* AmiiboHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6519BC26C456330037BC1E /* AmiiboHomeView.swift */; };
 		ED6519BF26C456340037BC1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED6519BE26C456340037BC1E /* Assets.xcassets */; };
@@ -19,7 +25,6 @@
 		ED6519D226C45E7A0037BC1E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6519D126C45E7A0037BC1E /* NetworkManager.swift */; };
 		ED6519D626C46D870037BC1E /* AmiiboHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6519D526C46D870037BC1E /* AmiiboHomeViewModel.swift */; };
 		ED6519DC26C474B30037BC1E /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6519DB26C474B30037BC1E /* Color+Extension.swift */; };
-		ED6BBD4F27E0168200C65290 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6BBD4E27E0168200C65290 /* PersistenceManager.swift */; };
 		ED6BBD5127E0170800C65290 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6BBD5027E0170800C65290 /* TabBar.swift */; };
 		ED6BBD5327E0173800C65290 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6BBD5227E0173800C65290 /* FavoritesView.swift */; };
 		ED9E8C142964C58700F0BD7F /* AmiiboHomeViewModelSuccessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9E8C132964C58700F0BD7F /* AmiiboHomeViewModelSuccessTests.swift */; };
@@ -66,8 +71,14 @@
 
 /* Begin PBXFileReference section */
 		ED0C932B27EACAD300C22EB8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		ED0C932D27EACC0600C22EB8 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		ED4464CB2BB5C8E8003263DB /* FavoritesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesDetailView.swift; sourceTree = "<group>"; };
+		ED4464CD2BB5C9F1003263DB /* FavoriteAmiiboReleaseDatesGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteAmiiboReleaseDatesGroupView.swift; sourceTree = "<group>"; };
+		ED4464D22BB5CAAA003263DB /* FavoriteAmiiboGroupInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteAmiiboGroupInfoView.swift; sourceTree = "<group>"; };
+		ED4464D42BB90268003263DB /* AmiiboAlreadyInFavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmiiboAlreadyInFavoritesView.swift; sourceTree = "<group>"; };
+		ED4464D62BB9D569003263DB /* SortAmiiboOptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortAmiiboOptionManager.swift; sourceTree = "<group>"; };
 		ED4467342800E54C00C08744 /* AmiiboDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmiiboDetailViewModel.swift; sourceTree = "<group>"; };
+		ED4FF5FC2BB4DB3E0063A8E3 /* FavoriteAmiibo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteAmiibo.swift; sourceTree = "<group>"; };
+		ED5974952BB5BCCC00593AF2 /* FavoriteAmiiboView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteAmiiboView.swift; sourceTree = "<group>"; };
 		ED6519B726C456330037BC1E /* Amiibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amiibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED6519BA26C456330037BC1E /* AmiiboApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmiiboApp.swift; sourceTree = "<group>"; };
 		ED6519BC26C456330037BC1E /* AmiiboHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmiiboHomeView.swift; sourceTree = "<group>"; };
@@ -79,7 +90,6 @@
 		ED6519D126C45E7A0037BC1E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		ED6519D526C46D870037BC1E /* AmiiboHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmiiboHomeViewModel.swift; sourceTree = "<group>"; };
 		ED6519DB26C474B30037BC1E /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
-		ED6BBD4E27E0168200C65290 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		ED6BBD5027E0170800C65290 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		ED6BBD5227E0173800C65290 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		ED9E8C132964C58700F0BD7F /* AmiiboHomeViewModelSuccessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmiiboHomeViewModelSuccessTests.swift; sourceTree = "<group>"; };
@@ -137,7 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				ED6BBD5227E0173800C65290 /* FavoritesView.swift */,
-				ED0C932D27EACC0600C22EB8 /* FavoritesViewModel.swift */,
+				ED4464CB2BB5C8E8003263DB /* FavoritesDetailView.swift */,
 			);
 			path = FavoritesView;
 			sourceTree = "<group>";
@@ -159,6 +169,15 @@
 				ED4467342800E54C00C08744 /* AmiiboDetailViewModel.swift */,
 			);
 			path = AmiiboDetailView;
+			sourceTree = "<group>";
+		};
+		ED4464D12BB5CA48003263DB /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				ED4464CD2BB5C9F1003263DB /* FavoriteAmiiboReleaseDatesGroupView.swift */,
+				ED4464D22BB5CAAA003263DB /* FavoriteAmiiboGroupInfoView.swift */,
+			);
+			path = Favorite;
 			sourceTree = "<group>";
 		};
 		ED52021026C863C700DAD266 /* Extensions */ = {
@@ -197,7 +216,6 @@
 				ED52021026C863C700DAD266 /* Extensions */,
 				ED6519E126C5FB120037BC1E /* Model */,
 				ED0C933027EACEF300C22EB8 /* API */,
-				EDADBB8E295FCB92003304EF /* PersistenceManager */,
 				EDADBB99295FCCB8003304EF /* Mapper */,
 				EDADBBA0295FCCE3003304EF /* JSON */,
 				ED6519E326C5FB400037BC1E /* Utilities */,
@@ -231,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				ED6519C926C456610037BC1E /* Amiibo.swift */,
+				ED4FF5FC2BB4DB3E0063A8E3 /* FavoriteAmiibo.swift */,
 				EDADBB8B295FC9E8003304EF /* MockData.swift */,
 			);
 			path = Model;
@@ -241,6 +260,7 @@
 			children = (
 				EDADBB71295FC69E003304EF /* AmiiboListView.swift */,
 				EDADBB73295FC6C6003304EF /* AmiiboGridView.swift */,
+				ED5974952BB5BCCC00593AF2 /* FavoriteAmiiboView.swift */,
 			);
 			path = "Amiibo Cells";
 			sourceTree = "<group>";
@@ -249,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				ED0C932B27EACAD300C22EB8 /* Constants.swift */,
+				ED4464D62BB9D569003263DB /* SortAmiiboOptionManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -266,6 +287,7 @@
 				EDADBB85295FC832003304EF /* AmiiboDividerView.swift */,
 				EDADBB81295FC80E003304EF /* AmiiboLoadingView.swift */,
 				EDADBB83295FC81E003304EF /* AmiiboSuccessView.swift */,
+				ED4464D42BB90268003263DB /* AmiiboAlreadyInFavoritesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -285,16 +307,9 @@
 				EDADBB87295FC928003304EF /* AmiiboGroupInfoView.swift */,
 				EDADBB89295FC94C003304EF /* AmiiboReleaseDatesGroupView.swift */,
 				EDADBB7B295FC7C4003304EF /* AmiiboSingleInfoView.swift */,
+				ED4464D12BB5CA48003263DB /* Favorite */,
 			);
 			path = "Group Views";
-			sourceTree = "<group>";
-		};
-		EDADBB8E295FCB92003304EF /* PersistenceManager */ = {
-			isa = PBXGroup;
-			children = (
-				ED6BBD4E27E0168200C65290 /* PersistenceManager.swift */,
-			);
-			path = PersistenceManager;
 			sourceTree = "<group>";
 		};
 		EDADBB99295FCCB8003304EF /* Mapper */ = {
@@ -423,8 +438,9 @@
 		ED6519AF26C456330037BC1E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1400;
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					ED6519B626C456330037BC1E = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -492,16 +508,20 @@
 				EDADBB88295FC928003304EF /* AmiiboGroupInfoView.swift in Sources */,
 				EDADBB74295FC6C6003304EF /* AmiiboGridView.swift in Sources */,
 				EDADBB7E295FC7D5003304EF /* AmiiboButtonView.swift in Sources */,
+				ED4FF5FD2BB4DB3E0063A8E3 /* FavoriteAmiibo.swift in Sources */,
+				ED4464D52BB90268003263DB /* AmiiboAlreadyInFavoritesView.swift in Sources */,
 				EDADBB86295FC832003304EF /* AmiiboDividerView.swift in Sources */,
+				ED4464CE2BB5C9F1003263DB /* FavoriteAmiiboReleaseDatesGroupView.swift in Sources */,
 				EDADBB7A295FC7A6003304EF /* EmptyAmiiboView.swift in Sources */,
-				ED6BBD4F27E0168200C65290 /* PersistenceManager.swift in Sources */,
+				ED4464D72BB9D569003263DB /* SortAmiiboOptionManager.swift in Sources */,
 				EDADBB92295FCBDC003304EF /* ImageRetriever.swift in Sources */,
 				ED0C932C27EACAD300C22EB8 /* Constants.swift in Sources */,
-				ED0C932E27EACC0600C22EB8 /* FavoritesViewModel.swift in Sources */,
 				ED6519BB26C456330037BC1E /* AmiiboApp.swift in Sources */,
+				ED4464D32BB5CAAA003263DB /* FavoriteAmiiboGroupInfoView.swift in Sources */,
 				EDFFEE3D2704003E00438C0F /* AmiiboDetailView.swift in Sources */,
 				EDADBB8C295FC9E8003304EF /* MockData.swift in Sources */,
 				ED6519DC26C474B30037BC1E /* Color+Extension.swift in Sources */,
+				ED4464CC2BB5C8E8003263DB /* FavoritesDetailView.swift in Sources */,
 				EDADBB94295FCBFA003304EF /* CachedImageManager.swift in Sources */,
 				ED6519D626C46D870037BC1E /* AmiiboHomeViewModel.swift in Sources */,
 				EDADBB82295FC80E003304EF /* AmiiboLoadingView.swift in Sources */,
@@ -512,6 +532,7 @@
 				ED6BBD5327E0173800C65290 /* FavoritesView.swift in Sources */,
 				ED6519CC26C456840037BC1E /* Release+Extension.swift in Sources */,
 				EDADBB76295FC734003304EF /* AmiiboErrorView.swift in Sources */,
+				ED5974962BB5BCCC00593AF2 /* FavoriteAmiiboView.swift in Sources */,
 				EDADBB90295FCBC5003304EF /* ImageCache.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -579,6 +600,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -593,7 +615,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -640,6 +662,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -648,7 +671,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -668,13 +691,16 @@
 				DEVELOPMENT_TEAM = 7ZH78K95TZ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Amiibo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.brandonrodriguez.Amiibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -690,13 +716,16 @@
 				DEVELOPMENT_TEAM = 7ZH78K95TZ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Amiibo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.brandonrodriguez.Amiibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

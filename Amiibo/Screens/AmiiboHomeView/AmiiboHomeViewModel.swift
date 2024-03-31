@@ -16,16 +16,24 @@ final class AmiiboHomeViewModel: ObservableObject {
     @Published var searchText = ""
     @Published var isShowingError = false
     @Published var listEnabled = true
+    @Published var selectedSortOption = SortAmiiboOptionManager.allCases.first!
     
     var filteredAmiibo: [Amiibo] {
             
             if searchText.isEmpty {
                 
-                return amiibo
+                return amiibo.sort(on: selectedSortOption)
                 
             } else {
                 
-                return amiibo.filter { $0.name.localizedCaseInsensitiveContains(searchText.lowercased()) }
+                let filteredAmiibo = amiibo.compactMap { amiibo in
+                    
+                    let amiiboName = amiibo.name.range(of: searchText, options: .caseInsensitive) != nil
+                    return amiiboName ? amiibo : nil
+                    
+                }
+                
+                return filteredAmiibo.sort(on: selectedSortOption)
                 
             }
             

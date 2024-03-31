@@ -43,8 +43,13 @@ struct AmiiboHomeView: View {
                 
             }
             .navigationTitle("Amiibo")
-            .toolbar { switchCellType }
-            .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always))
+            .toolbar { 
+                
+                switchCellType
+                sort
+                
+            }
+            .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search amiibo")
             .refreshable {
                 
                 Task { await viewModel.fetchAmiibo() }
@@ -77,11 +82,11 @@ struct AmiiboHomeView_Previews: PreviewProvider {
 
 private extension AmiiboHomeView {
     
-    var listView: some View {
+    private var listView: some View {
         
         List(viewModel.filteredAmiibo) { amiibo in
             
-            NavigationLink(destination: AmiiboDetailView(amiibo: amiibo, inPersistence: false)) {
+            NavigationLink(destination: AmiiboDetailView(amiibo: amiibo)) {
                 
                 AmiiboListView(amiibo: amiibo)
                 
@@ -89,10 +94,9 @@ private extension AmiiboHomeView {
             
         }
         
-        
     }
     
-    var gridView: some View {
+    private var gridView: some View {
         
         ScrollView {
             
@@ -100,7 +104,7 @@ private extension AmiiboHomeView {
                 
                 ForEach(viewModel.filteredAmiibo, id: \.id) { amiibo in
                     
-                    NavigationLink(destination: AmiiboDetailView(amiibo: amiibo, inPersistence: false)) {
+                    NavigationLink(destination: AmiiboDetailView(amiibo: amiibo)) {
                         
                         AmiiboGridView(amiibo: amiibo)
                         
@@ -108,6 +112,7 @@ private extension AmiiboHomeView {
                     
                 }
                 .padding(.horizontal)
+                .padding(.vertical, 10)
                 
             }
             
@@ -115,16 +120,16 @@ private extension AmiiboHomeView {
         
     }
     
-    var gridBackground: some View {
+    private var gridBackground: some View {
         
         Color.background
             .ignoresSafeArea(edges: .top)
         
     }
     
-    var switchCellType: some ToolbarContent {
+    private var switchCellType: some ToolbarContent {
         
-        ToolbarItem(placement: .navigationBarTrailing) {
+        ToolbarItem(placement: .topBarLeading) {
             
             Button {
                 
@@ -135,6 +140,33 @@ private extension AmiiboHomeView {
                     
                 }
                 .disabled(viewModel.isLoading)
+            
+        }
+        
+    }
+    
+    private var sort: some ToolbarContent {
+        
+        ToolbarItem(placement: .topBarTrailing) {
+            
+            Menu {
+                
+                Picker("", selection: $viewModel.selectedSortOption) {
+                    
+                    ForEach(SortAmiiboOptionManager.allCases, id: \.self) { option in
+                    
+                        Label(option.localizedString, systemImage: option.systemImage)
+                            .tag(option)
+                        
+                    }
+                    
+                }
+                
+            } label: {
+                
+                Label("Sort", systemImage: SFSymbols.sort)
+                
+            }
             
         }
         

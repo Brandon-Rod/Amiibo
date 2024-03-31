@@ -41,3 +41,28 @@ struct AmiiboResponse: Codable, Hashable, Equatable {
     let amiibo: [Amiibo]
     
 }
+
+extension [Amiibo] {
+    
+    func sort(on option: SortAmiiboOptionManager) -> [Amiibo] {
+        
+        switch option {
+            
+        case .alphabetical:
+            self.sorted(by: { $0.name < $1.name })
+                        
+        case .figure:
+            self.sorted(by: { $0.type.contains("Figure") && !$1.type.contains("") })
+            
+        case .card:
+            self.sorted(by: { $0.type.contains("Card") && !$1.type.contains("") })
+            
+        case .yarn:
+            self.sorted(by: { $0.type.contains("Yarn") && !$1.type.contains("") })
+            
+        
+        }
+        
+    }
+    
+}
