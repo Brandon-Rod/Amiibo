@@ -1,12 +1,12 @@
 # Amiibo
 
-![List-Rotato](https://user-images.githubusercontent.com/61842505/210621638-e52c6d16-d330-4908-9a4c-7985d06099bb.png)
+![Grid](https://github.com/Brandon-Rod/Amiibo/assets/61842505/3818fc00-d0dd-4f82-9f66-1e4d4944de48)
 
-![AddedToFavorites-Rotato](https://user-images.githubusercontent.com/61842505/210621653-4e03bb7e-f0f2-4be6-9578-e14cd12a1b0f.png)
+![List](https://github.com/Brandon-Rod/Amiibo/assets/61842505/736374ca-4ceb-47d5-94c3-82640bb6c88f)
 
-![Grid-Rotato](https://user-images.githubusercontent.com/61842505/210621677-d255b79f-a1b6-4a5b-b7a8-a97d80e1761d.png)
+![AddedToFavorites](https://github.com/Brandon-Rod/Amiibo/assets/61842505/c1d0ff41-b2cb-4d13-bdab-a0cadfa0a7ec)
 
-![Favorites-Rotato](https://user-images.githubusercontent.com/61842505/210621702-b5268ff8-c98f-4b06-805f-46a8fed090cf.png)
+![Favorites](https://github.com/Brandon-Rod/Amiibo/assets/61842505/5040839c-3a0d-4d35-9b6d-a3d086e527c2)
 
 ## About
 - MVVM
